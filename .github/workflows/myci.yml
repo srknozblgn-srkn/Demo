@@ -50,6 +50,7 @@ jobs:
         run: |
          echo "### Test Results" >> $GITHUB_STEP_SUMMARY
          cat test-output.txt >> $GITHUB_STEP_SUMMARY
+  
   ai-review:
    runs-on: ubuntu-latest
    needs: test
@@ -66,8 +67,8 @@ jobs:
          exclude: " *.md,*.txt"
          
   security:
-    needs: test
     runs-on: ubuntu-latest
+    needs: test
  
     steps:
       - name: Checkout code
